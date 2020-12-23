@@ -64,9 +64,9 @@ drop table if exists order_from;
 create table order_from (
     pid         int			not null,
     sid			int			not null,
-    bid         int			not null,
-    primary key (sid, bid, pid),
-    foreign key (bid) references book(bid) on delete cascade,
+    isbn        char(20)	not null,
+    primary key (sid, isbn, pid),
+    foreign key (isbn) references book_isbn(isbn) on delete cascade,
     foreign key (sid) references bookstore(sid) on delete cascade,
     foreign key (pid) references publisher(pid) on delete cascade 
 );
