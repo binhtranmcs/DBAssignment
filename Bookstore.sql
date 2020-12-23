@@ -180,6 +180,24 @@ create table give (
 	foreign key (cid) references customer (cid) on delete cascade
 );
 
+drop table if exists work_for;
+create table work_for (
+	sid		int				not null,
+	eid		int				not null,
+	primary key (sid, eid),
+    foreign key (sid) references bookstore(sid) on delete cascade,
+	foreign key (eid) references employee(eid) on delete cascade
+);
+
+drop table if exists work_for;
+create table stored_at (
+	sid		int				not null,
+	bid		int				not null,
+	primary key (sid, eid),
+    foreign key (sid) references book(bid) on delete cascade,
+	foreign key (eid) references employee(eid) on delete cascade
+);
+
 --------------------
 use smallDB20161002;
 
