@@ -59,13 +59,13 @@ create table bill(
     purchase_date date
 );
 
-drop table if exists bill_book
-create table bill_book (
-	bbid	int				references bill(bbid),
-	isbn	char(20)		not null,
-	quantity int			not null check(quantity > 0),
-	primary key (bbid, isbn)
-);
+--drop table if exists bill_book
+--create table bill_book (
+--	bbid	int				references bill(bbid),
+--	isbn	char(20)		not null,
+--	quantity int			not null check(quantity > 0),
+--	primary key (bbid, isbn)
+--);
 
 drop table if exists credit_card;
 create table credit_card (
@@ -79,7 +79,19 @@ drop table if exists author;
 create table author (
     aid         int		    primary key identity(1, 1),
     aname       varchar(30) not null,
-    pen_name    varchar(15)
+    pen_name    varchar(15),
+);
+
+drop table if exists genre;
+create table genre(
+	gname		varchar(20)			primary key
+);
+
+drop table if exists has_genre;
+create table has_genre(
+	gname		varchar(20)			references genre(gname),
+	aid			int					references author(aid),
+	primary key (gname, aid)
 );
 
 drop table if exists write;
