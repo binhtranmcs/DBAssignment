@@ -3,7 +3,9 @@ use smallDB20161002;
 
 drop database if exists Bookstore;
 create database Bookstore;
+GO
 use Bookstore;
+GO
 
 drop table if exists bookstore;
 create table bookstore (
