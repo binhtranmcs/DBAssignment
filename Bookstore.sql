@@ -44,9 +44,9 @@ create table book_isbn (
 drop table if exists book_prop;
 create table book_prop (
     isbn        char(20)    not null,
-    domain      varchar(15) not null,
+    genre		varchar(15) not null,
     keyword     varchar(15) not null,
-    primary key	(isbn, domain, keyword)
+    primary key	(isbn, genre, keyword)
 );
 
 drop table if exists bill;
@@ -80,18 +80,6 @@ create table author (
     aid         int		    primary key identity(1, 1),
     aname       varchar(30) not null,
     pen_name    varchar(15),
-);
-
-drop table if exists genre;
-create table genre(
-	gname		varchar(20)			primary key
-);
-
-drop table if exists has_genre;
-create table has_genre(
-	gname		varchar(20)			references genre(gname),
-	aid			int					references author(aid),
-	primary key (gname, aid)
 );
 
 drop table if exists write;
