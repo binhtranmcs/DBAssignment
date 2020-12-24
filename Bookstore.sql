@@ -20,24 +20,18 @@ create table customer (
     cemail      varchar(20) not null
 );
 
-drop table if exists book;
-create table book (
-    bid         int		    primary key identity(1, 1),
-    isbn        char(20)    not null,
-    status      varchar(10) check(status in ('waiting', 'exported', 'in stored'))
-);
-
 drop table if exists ebook;
 create table ebook(
-    bid			int		    primary key,
-    foreign key (bid) references book(bid)
+    bid			int		    primary key identity(1, 1),
+    isbn        char(20)    not null
 );
 
 drop table if exists pbook;
 create table pbook(
-    bid         int		    primary key,
+    bid         int		    primary key identity(1, 1),
+	isbn		char(20)	not null,
     date_print  date,          
-    foreign key (bid) references book(bid)
+	status      varchar(10) check(status in ('waiting', 'exported', 'in stored'))
 );
 
 drop table if exists book_isbn;
@@ -90,10 +84,10 @@ create table author (
 
 drop table if exists write;
 create table write(
-    bid         int			not null,
+    isbn        char(20)			not null,
     aid         int			not null,
-    primary key (bid, aid),
-    foreign key (bid) references book(bid) on delete cascade,
+    primary key (isbn, aid),
+    foreign key (isbn) references book_isbn(isbn) on delete cascade,
     foreign key (aid) references author(aid) on delete cascade,
 );
 
@@ -141,7 +135,7 @@ create table borrow (
     cid         int			not null,
     borrow_date date,
     primary key (bid, cid),
-    foreign key (bid) references book(bid) on delete cascade,
+    foreign key (bid) references ebook(bid) on delete cascade,
     foreign key (cid) references customer(cid) on delete cascade
 );
 
@@ -158,7 +152,7 @@ create table manage (
     bid     int				not null,
     eid     int				not null,
     primary key (bid, eid),
-    foreign key (bid) references book(bid) on delete cascade,
+    foreign key (bid) references pbook(bid) on delete cascade,
 	foreign key (eid) references employee(eid) on delete cascade
 );
 
@@ -200,7 +194,7 @@ create table stored_at (
 	sid		int				not null,
 	bid		int				not null,
 	primary key (bid, sid),
-    foreign key (bid) references book(bid) on delete cascade,
+    foreign key (bid) references pbook(bid) on delete cascade,
 	foreign key (sid) references bookstore(sid) on delete cascade
 );
 
