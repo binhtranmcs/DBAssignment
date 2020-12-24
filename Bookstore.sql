@@ -23,7 +23,8 @@ create table customer (
 drop table if exists book;
 create table book (
     bid         int		    primary key identity(1, 1),
-    isbn        char(20)    not null
+    isbn        char(20)    not null,
+    status      varchar(10) check(status in ('waiting', 'exported', 'in stored'))
 );
 
 drop table if exists ebook;
@@ -32,11 +33,10 @@ create table ebook(
     foreign key (bid) references book(bid)
 );
 
-drop table if exists physical_book;
-create table physical_book(
+drop table if exists pbook;
+create table pbook(
     bid         int		    primary key,
-    DatePrint   Date,
-    Btype       char(9),          
+    date_print  date,          
     foreign key (bid) references book(bid)
 );
 
@@ -44,8 +44,7 @@ drop table if exists book_isbn;
 create table book_isbn (
     isbn        char(20)    primary key,
     title       varchar(20) not null,
-    price       integer,
-    status      varchar(10) check(status in ('waiting', 'exported'))
+    price       integer
 );
 
 drop table if exists book_prop;
@@ -58,16 +57,20 @@ create table book_prop (
 
 drop table if exists bill;
 create table bill(
-    bbid    int				not null identity(1, 1),
-	bid		int				not null,
-	cid		int				not null,
+    bbid    int				not null identity(1, 1) primary key,
+	cid		int				references customer(cid),
     payment	varchar(9),
     issue   varchar(100),
     price	integer,
-    purchase_date date,
-	primary key (bid, cid),
-	foreign key (bid) references book(bid),
-	foreign key (cid) references customer(cid)
+    purchase_date date
+);
+
+drop table if exists bill_book
+create table bill_book (
+	bbid	int				references bill(bbid),
+	isbn	char(20)		not null,
+	quantity int			not null check(quantity > 0),
+	primary key (bbid, isbn)
 );
 
 drop table if exists credit_card;
@@ -128,7 +131,7 @@ create table pbuy (
     cid         int			not null,
 	bbid		int			not null,
     primary key (bid, cid),
-	foreign key (bid) references physical_book(bid) on delete cascade,
+	foreign key (bid) references pbook(bid) on delete cascade,
     foreign key (cid) references customer(cid) on delete cascade,
 );
 
@@ -202,25 +205,7 @@ create table stored_at (
 );
 
 --------------------
-
-use Bookstore;
-
-insert into customer(caddress, cname, cemail) 
-values ('HCM', 'A', 'A@email.com');
-insert into customer(caddress, cname, cemail) 
-values ('HCM', 'B', 'B@email.com');
-insert into customer(caddress, cname, cemail) 
-values ('HCM', 'C', 'C@email.com');
-insert into customer(caddress, cname, cemail) 
-values ('HCM', 'D', 'D@email.com');
-insert into customer(caddress, cname, cemail) 
-values ('HCM', 'E', 'E@email.com');
-insert into customer(caddress, cname, cemail) 
-values ('HCM', 'F', 'F@email.com');
-insert into customer(caddress, cname, cemail) 
-values ('HCM', 'G', 'G@email.com');
-
---------------------
 use smallDB20161002;
 
 --select * from Department;
+--select * from customer;
