@@ -20,6 +20,22 @@ create table customer (
     cemail      varchar(20) not null
 );
 
+drop table if exists employee;
+create table employee (
+    eid			int			not null primary key identity(1, 1),
+    eaddress char(20),
+    ename char(30)			not null,
+    eemail char(20)			not null
+);
+
+drop table if exists account;
+create table account (
+	username	varchar(30) not null,
+	password	varchar(30) not null,
+	type_account varchar(30) not null check(type_account in ('Admin', 'Customer', 'Employee')), 
+	primary key aid
+
+);
 drop table if exists ebook;
 create table ebook(
     bid			int		    primary key identity(1, 1),
@@ -137,14 +153,6 @@ create table borrow (
     primary key (bid, cid),
     foreign key (bid) references ebook(bid) on delete cascade,
     foreign key (cid) references customer(cid) on delete cascade
-);
-
-drop table if exists employee;
-create table employee (
-    eid			int			not null primary key identity(1, 1),
-    eaddress char(20),
-    ename char(30)			not null,
-    eemail char(20)			not null
 );
 
 drop table if exists manage;
