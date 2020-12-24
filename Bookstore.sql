@@ -58,11 +58,16 @@ create table book_prop (
 
 drop table if exists bill;
 create table bill(
-    bbid    int				primary key,
+    bbid    int				not null identity(1, 1),
+	bid		int				not null,
+	cid		int				not null,
     payment	varchar(9),
-    issue   varchar(20),
+    issue   varchar(100),
     price	integer,
-    purchase_date date
+    purchase_date date,
+	primary key (bid, cid),
+	foreign key (bid) references book(bid),
+	foreign key (cid) references customer(cid)
 );
 
 drop table if exists credit_card;
@@ -115,7 +120,6 @@ create table ebuy (
     primary key (bid, cid),
 	foreign key (bid) references ebook(bid) on delete cascade,
     foreign key (cid) references customer(cid) on delete cascade,
-	foreign key (bbid) references bill(bbid) on delete cascade
 );
 
 drop table if exists pbuy;
@@ -126,7 +130,6 @@ create table pbuy (
     primary key (bid, cid),
 	foreign key (bid) references physical_book(bid) on delete cascade,
     foreign key (cid) references customer(cid) on delete cascade,
-	foreign key (bbid) references bill(bbid) on delete cascade
 );
 
 drop table if exists borrow;
@@ -193,10 +196,29 @@ drop table if exists work_for;
 create table stored_at (
 	sid		int				not null,
 	bid		int				not null,
-	primary key (sid, eid),
-    foreign key (sid) references book(bid) on delete cascade,
-	foreign key (eid) references employee(eid) on delete cascade
+	primary key (bid, sid),
+    foreign key (bid) references book(bid) on delete cascade,
+	foreign key (sid) references bookstore(sid) on delete cascade
 );
+
+--------------------
+
+use Bookstore;
+
+insert into customer(caddress, cname, cemail) 
+values ('HCM', 'A', 'A@email.com');
+insert into customer(caddress, cname, cemail) 
+values ('HCM', 'B', 'B@email.com');
+insert into customer(caddress, cname, cemail) 
+values ('HCM', 'C', 'C@email.com');
+insert into customer(caddress, cname, cemail) 
+values ('HCM', 'D', 'D@email.com');
+insert into customer(caddress, cname, cemail) 
+values ('HCM', 'E', 'E@email.com');
+insert into customer(caddress, cname, cemail) 
+values ('HCM', 'F', 'F@email.com');
+insert into customer(caddress, cname, cemail) 
+values ('HCM', 'G', 'G@email.com');
 
 --------------------
 use smallDB20161002;
