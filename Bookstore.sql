@@ -33,7 +33,7 @@ create table account (
 	username	varchar(30) not null,
 	password	varchar(30) not null,
 	type_account varchar(30) not null check(type_account in ('Admin', 'Customer', 'Employee')), 
-	primary key aid
+	accid	int not null primary key
 
 );
 drop table if exists ebook;

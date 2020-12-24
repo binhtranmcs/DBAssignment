@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,26 +25,33 @@ namespace WindowsFormsApp1
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=TECHMAC\SQLEXPRESS;Initial Catalog=db_QL;Integrated Security=True");
-
-        }
-        private string getID(string username, string pass)
-        {
-            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True");
-            string id = "";
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=db_QL;Integrated Security=True");
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM account WHERE username ='" + username + "' and pass='" + pass + "'", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM account WHERE username='" + username + "' and password='" + pass + "'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 if (dt != null)
                 {
-                    foreach (DataRow dr in dt.Rows)
+                    if (dt.Rows.Count > 0)
                     {
-                        id = dr["id_user"].ToString();
+                        MessageBox.Show("Oups, co gi do sai sai");
                     }
+                    string typeAccount = dt.Rows[0]["type_account"];
+                    if (typeAccount == "Admin")
+                    {
+                        MessageBox.Show("Day la Admin account");
+                    }
+                    else
+                    {
+                        if (typeAccount == "Customer")
+                        {
+
+                        }
+                    }
+
                 }
             }
             catch (Exception)
@@ -54,7 +62,6 @@ namespace WindowsFormsApp1
             {
                 con.Close();
             }
-            return id;
         }
     }
 }
