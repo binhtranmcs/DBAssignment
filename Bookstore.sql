@@ -39,39 +39,41 @@ create table account (
 	primary key(type_account, accid)
 
 );
+
+drop table if exists book_isbn;
+create table book_isbn (
+    isbn        char(20)    primary key,
+    genre		varchar(15) not null,
+    title       varchar(20) not null,
+    price       integer
+);
+
 drop table if exists ebook;
 create table ebook(
     bid			int		    primary key identity(1, 1),
-    isbn        char(20)    not null
+    isbn        char(20)    references book_isbn(isbn)
 );
 
 drop table if exists pbook;
 create table pbook(
     bid         int		    primary key identity(1, 1),
-	isbn		char(20)	not null,
+	isbn		char(20)	references book_isbn(isbn),
     date_print  date,          
 	status      varchar(10) check(status in ('waiting', 'exported', 'in stored'))
 );
 
-drop table if exists book_isbn;
-create table book_isbn (
-    isbn        char(20)    primary key,
-    title       varchar(20) not null,
-    price       integer
-);
-
 drop table if exists book_prop;
 create table book_prop (
-    isbn        char(20)    not null,
-    genre		varchar(15) not null,
+    isbn        char(20)    references book_isbn(isbn),
     keyword     varchar(15) not null,
-    primary key	(isbn, genre, keyword)
+    primary key	(isbn, keyword)
 );
 
 drop table if exists bill;
 create table bill(
     bbid    int				not null identity(1, 1) primary key,
 	cid		int				references customer(cid),
+	quantity int			check(quantity > 0),
     payment	varchar(9),
     issue   varchar(100),
     price	integer,
@@ -103,11 +105,11 @@ create table author (
 
 drop table if exists write;
 create table write(
-    isbn        char(20)			not null,
-    aid         int			not null,
+    isbn        char(20)	references book_isbn(isbn),
+    aid         int			references author(aid),
     primary key (isbn, aid),
-    foreign key (isbn) references book_isbn(isbn) on delete cascade,
-    foreign key (aid) references author(aid) on delete cascade,
+    --foreign key (isbn) references book_isbn(isbn) on delete cascade,
+    --foreign key (aid) references author(aid) on delete cascade,
 );
 
 drop table if exists publisher;
@@ -200,7 +202,7 @@ create table work_for (
 	foreign key (eid) references employee(eid) on delete cascade
 );
 
-drop table if exists work_for;
+drop table if exists stored_at;
 create table stored_at (
 	sid		int				not null,
 	bid		int				not null,
