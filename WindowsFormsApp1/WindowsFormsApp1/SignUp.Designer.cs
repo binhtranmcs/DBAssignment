@@ -120,7 +120,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Name = "SignUp";
-            this.Text = "Login";
+            this.Text = "Sign Up";
             this.ResumeLayout(false);
             this.PerformLayout();
 

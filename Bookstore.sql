@@ -35,7 +35,8 @@ create table account (
 	username	varchar(30) not null,
 	password	varchar(30) not null,
 	type_account varchar(30) not null check(type_account in ('Admin', 'Customer', 'Employee')), 
-	accid	int not null primary key
+	accid	int not null
+	primary key(type_account, accid)
 
 );
 drop table if exists ebook;
