@@ -149,6 +149,7 @@ drop table if exists borrow;
 create table borrow (
     bid         int		    not null,
     cid         int			not null,
+	link		varchar(3)	not null,
     borrow_date date,
     primary key (bid, cid),
     foreign key (bid) references ebook(bid) on delete cascade,
