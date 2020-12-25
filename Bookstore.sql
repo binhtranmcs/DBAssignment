@@ -201,7 +201,7 @@ create table work_for (
 	foreign key (eid) references employee(eid) on delete cascade
 );
 
-drop table if exists work_for;
+drop table if exists stored_at;
 create table stored_at (
 	sid		int				not null,
 	bid		int				not null,
