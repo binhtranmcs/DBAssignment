@@ -10,6 +10,8 @@ from bill
 where @cid = cid and month(purchase_date) = @month and year(purchase_date) = @year;
 go
 
+exec list_all_transaction @cid = 1, @month = 1, @year = 2000
+
 -------------------------------------------
 drop proc if exists list_error_transaction;
 go
@@ -20,6 +22,9 @@ from bill
 where @cid = cid and month(purchase_date) = @month and year(purchase_date) = @year and issue is not null;
 go
 
+exec list_error_transaction @cid = 1, @month = 1, @year = 2000
+
+
 ------------------------------------------------
 drop proc if exists list_unfinished_transaction;
 go
@@ -29,6 +34,8 @@ select *
 from bill
 where @cid = cid and month(purchase_date) = @month and year(purchase_date) = @year and issue = 'not finished';
 go
+
+exec list_unfinished_transaction @cid = 1, @month = 1, @year = 2000
 
 ---------------------------------
 drop proc if exists author_genre;
@@ -95,5 +102,17 @@ where @cid = cid and month(purchase_date) = @month and year(purchase_date) = @ye
 go
 
 exec max_bill @cid = 1, @month = 1, @year = 2000;
+
+-------------------------------
+drop proc if exists mixed_bill;
+go 
+create proc mixed_bill(@cid int, @month int, @year int)
+as
+select distinct *
+from ((pbuy inner join ebuy on pbuy.bbid = ebuy.bbid) inner join bill on ebuy.bbid = bill.bbid)
+where @month = month(purchase_date) and @year = year(purchase_date) and @cid = bill.cid;
+go
+
+exec mixed_bill @cid = 1, @year = 2000, @month = 1
 
 use smallDB20161002;
