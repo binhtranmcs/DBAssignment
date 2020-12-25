@@ -131,29 +131,26 @@ create table order_from (
 
 drop table if exists ebuy;
 create table ebuy (
-    bid         int		    not null,
-    cid         int			not null,
-	bbid		int			not null,
+    bid         int		    references ebook(bid) on delete cascade,
+    cid         int			references customer(cid) on delete cascade,
+	bbid		int			references bill(bbid) on delete cascade,
 	link		varchar(30)	not null,
-    primary key (bid, cid),
-	foreign key (bid) references ebook(bid) on delete cascade,
-    foreign key (cid) references customer(cid) on delete cascade,
+    primary key (bid, cid)
 );
 
 drop table if exists pbuy;
 create table pbuy (
-    bid         int		    not null,
-    cid         int			not null,
-	bbid		int			not null,
-    primary key (bid, cid),
-	foreign key (bid) references pbook(bid) on delete cascade,
-    foreign key (cid) references customer(cid) on delete cascade,
+    bid         int		    references pbook(bid) on delete cascade,
+    cid         int			references customer(cid) on delete cascade,
+	bbid		int			references bill(bbid) on delete cascade,
+    primary key (bid, cid)
 );
 
 drop table if exists borrow;
 create table borrow (
     bid         int		    not null,
     cid         int			not null,
+	link		varchar(3)	not null,
     borrow_date date,
     primary key (bid, cid),
     foreign key (bid) references ebook(bid) on delete cascade,
