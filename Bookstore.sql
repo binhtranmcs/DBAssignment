@@ -72,7 +72,6 @@ create table book_prop (
 drop table if exists bill;
 create table bill(
     bbid    int				not null identity(1, 1) primary key,
-	cid		int				references customer(cid),
 	quantity int			check(quantity > 0),
     payment	varchar(9),
     issue   varchar(100),
@@ -107,6 +106,7 @@ drop table if exists write;
 create table write(
     isbn        char(20)	references book_isbn(isbn),
     aid         int			references author(aid),
+	date_publish  date,          
     primary key (isbn, aid),
     --foreign key (isbn) references book_isbn(isbn) on delete cascade,
     --foreign key (aid) references author(aid) on delete cascade,

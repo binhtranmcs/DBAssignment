@@ -45,5 +45,5 @@ GO
 --SELECT 'employyee2', '1234', 'Employee', MAX(eid) from employee
 ----insert into account ('employee2', '1234', 'Employee', accid in Select cid from customer order by cid desc limit 1)
 
-insert into bill(cid, payment, issue, price, purchase_date)
-VALUES(1, 'card', 'ok', 90, CURRENT_TIMESTAMP)
+insert into bill(cid, quantity, payment, issue, price, purchase_date)
+VALUES(1, 1, 'card', 'ok', 90, CURRENT_TIMESTAMP)

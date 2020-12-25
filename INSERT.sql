@@ -20,6 +20,10 @@ insert into book_isbn
 values ('1111', 'science', 'book 1', 1000);
 insert into book_isbn
 values ('2222', 'action', 'book 2', 2000);
+insert into book_isbn
+values ('3333', 'action', 'book 2', 2001);
+insert into book_isbn
+values ('4444', 'action', 'book 2', 2001);
 
 insert into book_prop
 values ('1111', 'Newton');
@@ -42,18 +46,34 @@ values (2, 1, 1);
 insert into pbuy
 values (3, 1, 1);
 
-insert into bill(cid, issue, price, purchase_date, quantity)
-values (1, 'not finished', 2000, cast('1/12/2000' as datetime), 2);
-insert into bill(cid, issue, price, purchase_date, quantity)
-values (1, 'not finished', 1000, cast('1/12/2000' as datetime), 1);
+insert into bill(issue, price, purchase_date, quantity)
+values ('not finished', 2000, cast('1/12/2000' as datetime), 2);
+insert into bill(issue, price, purchase_date, quantity)
+values ('not finished', 1000, cast('1/12/2000' as datetime), 1);
 
 insert into author(aname, pen_name)
 values ('a', 'Pete');
 insert into author(aname, pen_name)
 values ('b', 'Val');
 
-insert into write(isbn, aid)
-values ('1111', 1);
+declare @date_now date;
+set @date_now = getdate();
+insert into write(isbn, aid, date_publish)
+values ('1111', 1, @date_now);
+set @date_now = getdate();
+insert into write(isbn, aid, date_publish)
+values ('2222', 1, @date_now);
+set @date_now = getdate();
+insert into write(isbn, aid, date_publish)
+values ('3333', 1, @date_now);
+set @date_now = getdate();
+insert into write(isbn, aid, date_publish)
+values ('4444', 1, @date_now);
+
+insert into ebook(isbn)
+VALUES('1111')
+insert into ebuy(bid, cid, bbid, link)
+VALUES(1, 1, 1, 'youtube.com')
 
 --delete from pbuy where 1 = 1;
 --delete from book_isbn where 1 = 1;
@@ -66,6 +86,8 @@ select * from bill;
 select * from pbuy;
 select * from author;
 select * from write;
+select * from ebuy;
+select * from ebook;
 
 --------------------
 use smallDB20161002;
