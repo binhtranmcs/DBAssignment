@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Login
+    partial class SignUp
     {
         /// <summary>
         /// Required designer variable.
@@ -29,43 +29,34 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSignIn = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 53);
+            this.label1.Location = new System.Drawing.Point(37, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
-            // btnSignIn
-            // 
-            this.btnSignIn.Location = new System.Drawing.Point(92, 163);
-            this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(75, 23);
-            this.btnSignIn.TabIndex = 3;
-            this.btnSignIn.Text = "Sign In";
-            this.btnSignIn.UseVisualStyleBackColor = true;
-            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(166, 102);
+            this.textBox2.Location = new System.Drawing.Point(164, 83);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(292, 22);
             this.textBox2.TabIndex = 2;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(166, 53);
+            this.textBox1.Location = new System.Drawing.Point(164, 34);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(292, 22);
             this.textBox1.TabIndex = 1;
@@ -73,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 102);
+            this.label2.Location = new System.Drawing.Point(37, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 4;
@@ -81,7 +72,7 @@
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(216, 163);
+            this.btnSignUp.Location = new System.Drawing.Point(128, 166);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(75, 23);
             this.btnSignUp.TabIndex = 4;
@@ -91,7 +82,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(350, 163);
+            this.btnClear.Location = new System.Drawing.Point(261, 166);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 5;
@@ -99,19 +90,36 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // Login
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(37, 123);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Confirm Password";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(164, 123);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(292, 22);
+            this.textBox3.TabIndex = 3;
+            // 
+            // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 240);
+            this.ClientSize = new System.Drawing.Size(503, 203);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.label1);
-            this.Name = "Login";
+            this.Name = "SignUp";
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,12 +129,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSignIn;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 

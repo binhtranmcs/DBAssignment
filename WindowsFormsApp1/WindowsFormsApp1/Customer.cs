@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Customer : Form
     {
-        public Form1()
+        public int cid = -1;
+        public Customer(int _cid = -1)
         {
             InitializeComponent();
+            cid = _cid;
+            Console.WriteLine("Ok day la Customer1 co id la: " + cid.ToString());
         }
     }
 }
