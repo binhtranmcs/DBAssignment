@@ -39,13 +39,6 @@ values ('1111', cast('1/1/2000' as datetime));
 insert into pbook(isbn, date_print)
 values ('1111', cast('1/1/2000' as datetime));
 
-insert into pbuy
-values (1, 1, 1);
-insert into pbuy
-values (2, 1, 1);
-insert into pbuy
-values (3, 1, 1);
-
 insert into bill(issue, price, purchase_date, quantity)
 values ('not finished', 2000, cast('1/12/2000' as datetime), 2);
 insert into bill(issue, price, purchase_date, quantity)
@@ -73,7 +66,14 @@ values ('4444', 1, @date_now);
 insert into ebook(isbn)
 VALUES('1111')
 insert into ebuy(bid, cid, bbid, link)
-VALUES(1, 1, 1, 'youtube.com')
+VALUES(1, 1, 2, 'youtube.com')
+
+insert into pbuy
+values (1, 1, 1);
+insert into pbuy
+values (2, 1, 2);
+insert into pbuy
+values (3, 1, 1);
 
 --delete from pbuy where 1 = 1;
 --delete from book_isbn where 1 = 1;
