@@ -116,19 +116,19 @@ namespace WindowsFormsApp1
         private void genreBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             genre = genreBox.Text;
-            MessageBox.Show("Genre Book: " + genre);
+            //MessageBox.Show("Genre Book: " + genre);
         }
 
         private void nameAuthorBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             aname = nameAuthorBox.Text;
-            MessageBox.Show("Name author: " + aname);
+            //MessageBox.Show("Name author: " + aname);
         }
 
         private void keywordBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             keyword = keywordBox.Text;
-            MessageBox.Show("Keyword: " + keyword);
+            //MessageBox.Show("Keyword: " + keyword);
         }
 
         private void btnGetBook_Click(object sender, EventArgs e)
