@@ -174,15 +174,16 @@ go
 select * from max_bill(1, 1, 2000);
 
 -------------------------------
-drop proc if exists mixed_bill;
+drop function if exists mixed_bill;
 go 
-create proc mixed_bill(@cid int, @month int, @year int)
+create function mixed_bill(@cid int, @month int, @year int)
+returns table
 as
-select distinct *
-from ((pbuy inner join ebuy on pbuy.bbid = ebuy.bbid) inner join bill on ebuy.bbid = bill.bbid)
-where @month = month(purchase_date) and @year = year(purchase_date) and (@cid = pbuy.cid or @cid = ebuy.cid);
+	return
+		select distinct bill.bbid, quantity, payment, issue, price, purchase_date
+		from ((pbuy inner join ebuy on pbuy.bbid = ebuy.bbid) inner join bill on ebuy.bbid = bill.bbid)
+		where @month = month(purchase_date) and @year = year(purchase_date) and (@cid = pbuy.cid or @cid = ebuy.cid);
 go
-
-exec mixed_bill @cid = 1, @year = 2000, @month = 1
+select * from mixed_bill(1, 1, 2000)
 
 use smallDB20161002;
