@@ -166,7 +166,6 @@ print DATEDIFF(MONTH, cast('1/12/2000' as datetime), @date_now)
 drop function if exists get_book;
 go
 create function get_book(
-	@cid int, 
 	@genre varchar(20), 
 	@aname varchar(20),
 	@keyword varchar(20),
@@ -182,9 +181,15 @@ begin
 	intersect 
 	select *
 	from list_book_genre(@genre)
+	intersect 
+	select *
+	from list_book_keyword(@keyword)
+	intersect 
+	select *
+	from list_book_date_published(@date_published)
 	return
 end
 go
-select * from get_book(1, 'science', 'a', null, null);
+select * from get_book('science', 'a', null, null);
 
 
