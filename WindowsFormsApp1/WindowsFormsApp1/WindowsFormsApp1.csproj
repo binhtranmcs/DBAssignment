@@ -64,11 +64,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="TransactionCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="TransactionCustomer.Designer.cs">
+      <DependentUpon>TransactionCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewAuthor.cs">
       <SubType>Form</SubType>
@@ -111,8 +111,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="TransactionCustomer.resx">
+      <DependentUpon>TransactionCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewAuthor.resx">
       <DependentUpon>ViewAuthor.cs</DependentUpon>

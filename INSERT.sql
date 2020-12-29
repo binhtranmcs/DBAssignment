@@ -78,14 +78,14 @@ VALUES('3333')
 insert into pbook(isbn)
 VALUES('4444')
 insert into ebuy(bid, cid, bbid, link)
-VALUES(1, 1, 2, 'youtube.com')
+VALUES(1, 8, 2, 'youtube.com')
 
 insert into pbuy
-values (1, 1, 1);
+values (1, 8, 1);
 insert into pbuy
-values (2, 1, 2);
+values (2, 8, 2);
 insert into pbuy
-values (3, 1, 1);
+values (3, 8, 1);
 
 --delete from pbuy where 1 = 1;
 --delete from book_isbn where 1 = 1;
