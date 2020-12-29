@@ -93,5 +93,10 @@ namespace WindowsFormsApp1
             var fm = new SignUp();
             fm.ShowDialog();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

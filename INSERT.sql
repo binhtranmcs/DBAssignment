@@ -58,7 +58,7 @@ insert into author(aname, pen_name)
 values ('b', 'Val');
 
 declare @date_now date;
-set @date_now = getdate();
+set @date_now = cast('2020-1-13' as date);
 insert into write(isbn, aid, date_published)
 values ('1111', 1, @date_now);
 set @date_now = getdate();
