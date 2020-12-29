@@ -147,6 +147,7 @@ namespace WindowsFormsApp1
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.get_book(@genre, @aname, @keyword, @date_published)", con);
 
+                if (Type == 1) cmd = new SqlCommand("SELECT * FROM ")
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@aname", aname);
                 cmd.Parameters.AddWithValue("@genre", genre);
