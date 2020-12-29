@@ -123,6 +123,7 @@ create table order_from (
     pid         int			not null,
     sid			int			not null,
     isbn        char(20)	not null,
+	quantity	int			not null check(quantity > 0)
     primary key (sid, isbn, pid),
     foreign key (isbn) references book_isbn(isbn) on delete cascade,
     foreign key (sid) references bookstore(sid) on delete cascade,

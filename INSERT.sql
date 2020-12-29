@@ -31,6 +31,14 @@ insert into book_prop
 values ('1111', 'Einstein');
 insert into book_prop
 values ('1111', 'gravity');
+insert into book_prop
+values ('2222', 'Einstein');
+insert into book_prop
+values ('3333', 'gravity');
+insert into book_prop
+values ('4444', 'Einstein');
+insert into book_prop
+values ('4444', 'gravity');
 
 insert into pbook(isbn, date_print)
 values ('1111', cast('1/1/2000' as datetime));
@@ -64,7 +72,11 @@ insert into write(isbn, aid, date_published)
 values ('4444', 1, @date_now);
 
 insert into ebook(isbn)
-VALUES('1111')
+VALUES('2222')
+insert into ebook(isbn)
+VALUES('3333')
+insert into pbook(isbn)
+VALUES('4444')
 insert into ebuy(bid, cid, bbid, link)
 VALUES(1, 1, 2, 'youtube.com')
 
