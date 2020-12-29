@@ -58,6 +58,18 @@
     <Compile Include="Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetBookCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetBookCustomer.Designer.cs">
+      <DependentUpon>GetBookCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="InfoCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +95,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetBookCustomer.resx">
+      <DependentUpon>GetBookCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InfoCustomer.resx">
       <DependentUpon>InfoCustomer.cs</DependentUpon>

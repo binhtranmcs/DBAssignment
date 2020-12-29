@@ -20,8 +20,30 @@ namespace WindowsFormsApp1
             cid = _cid;
             Console.WriteLine("Ok day la Customer1 co id la: " + cid.ToString());
             showNameCustomer(cid);
+            showbook();
         }
         
+        public void showbook()
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True");
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM book_isbn", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                bookView.DataSource = dt;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         public void showName(string nameCustomer)
         {
             label1.Text = "Hi " + nameCustomer;
@@ -69,7 +91,13 @@ namespace WindowsFormsApp1
             var fm = new InfoCustomer(cid);
             fm.ShowDialog();
             showNameCustomer(cid);
+            showbook();
         }
 
+        private void btnGetBook_Click(object sender, EventArgs e)
+        {
+            var fm = new GetBookCustomer(cid);
+            fm.ShowDialog();
+        }
     }
 }
