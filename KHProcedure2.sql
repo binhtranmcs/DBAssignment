@@ -70,28 +70,48 @@ go
 select * from list_unfinished_transaction(1, 1, 2000);
 
 ---------------------------------
-drop proc if exists author_genre;
+drop function if exists author_genre;
 go
-create proc author_genre(@genre varchar(15))
+create function author_genre(@genre varchar(15))
+returns table
 as
-select distinct author.aid, pen_name
-from ((author inner join write on author.aid = write.aid) inner join book_isbn on book_isbn.isbn = write.isbn)
-where genre = @genre;
+	return 
+		select distinct author.aid, pen_name
+		from ((author inner join write on author.aid = write.aid) inner join book_isbn on book_isbn.isbn = write.isbn)
+		where genre = @genre or @genre = 'null';
 go
 
-exec author_genre @genre = 'science'
+select * from author_genre('science')
 
 -----------------------------------
-drop proc if exists author_keyword;
+drop function if exists author_keyword;
 go
-create proc author_keyword(@keyword varchar(15))
+create function author_keyword(@keyword varchar(15))
+returns table
 as
-select distinct author.aid, pen_name
-from ((author inner join write on author.aid = write.aid) inner join book_prop on book_prop.isbn = write.isbn)
-where keyword = @keyword;
+	return
+		select distinct author.aid, pen_name
+		from ((author inner join write on author.aid = write.aid) inner join book_prop on book_prop.isbn = write.isbn)
+		where keyword = @keyword or @keyword = 'null';
 go
 
-exec author_keyword @keyword = 'gravity'
+select * from author_keyword('gravity');
+
+-----------------------------------
+drop function if exists get_author;
+go
+create function get_author(@genre varchar(15), @keyword varchar(15))
+returns @res table(aid int, pen_name varchar(20))
+as
+begin
+	insert @res 
+	select * from author_keyword(@keyword)
+	intersect
+	select * from author_genre(@genre)
+	return
+end
+go
+select * from get_author('null', 'null');
 
 -------------------------------
 drop proc if exists total_book;

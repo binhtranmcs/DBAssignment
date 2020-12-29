@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bookView = new System.Windows.Forms.DataGridView();
             this.btnGetBook = new System.Windows.Forms.Button();
+            this.btnGetAuthor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bookView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +76,22 @@
             this.btnGetBook.UseVisualStyleBackColor = true;
             this.btnGetBook.Click += new System.EventHandler(this.btnGetBook_Click);
             // 
+            // btnGetAuthor
+            // 
+            this.btnGetAuthor.Location = new System.Drawing.Point(383, 345);
+            this.btnGetAuthor.Name = "btnGetAuthor";
+            this.btnGetAuthor.Size = new System.Drawing.Size(112, 23);
+            this.btnGetAuthor.TabIndex = 4;
+            this.btnGetAuthor.Text = "Get Author";
+            this.btnGetAuthor.UseVisualStyleBackColor = true;
+            this.btnGetAuthor.Click += new System.EventHandler(this.btnGetAuthor_Click);
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGetAuthor);
             this.Controls.Add(this.btnGetBook);
             this.Controls.Add(this.bookView);
             this.Controls.Add(this.label1);
@@ -98,5 +110,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView bookView;
         private System.Windows.Forms.Button btnGetBook;
+        private System.Windows.Forms.Button btnGetAuthor;
     }
 }

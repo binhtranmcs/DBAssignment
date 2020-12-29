@@ -99,5 +99,11 @@ namespace WindowsFormsApp1
             var fm = new GetBookCustomer(cid);
             fm.ShowDialog();
         }
+
+        private void btnGetAuthor_Click(object sender, EventArgs e)
+        {
+            var fm = new ViewAuthor(cid);
+            fm.ShowDialog();
+        }
     }
 }
