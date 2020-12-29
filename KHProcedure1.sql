@@ -158,7 +158,7 @@ go
 
 declare @date_now date;
 set @date_now = getdate();
-select * from list_buy_month(1, @date_now);
+select * from list_buy_month(8, @date_now);
 
 print DATEDIFF(MONTH, cast('1/12/2000' as datetime), @date_now)
 

@@ -147,7 +147,6 @@ namespace WindowsFormsApp1
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.get_book(@genre, @aname, @keyword, @date_published)", con);
 
-                if (Type == 1) cmd = new SqlCommand("SELECT * FROM ")
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@aname", aname);
                 cmd.Parameters.AddWithValue("@genre", genre);
@@ -171,5 +170,36 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void btnBuyBook_Click(object sender, EventArgs e)
+        {
+            DateTime date_now = dateTimePicker1.Value;
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True");
+            try
+            {
+                Console.WriteLine("Id Customer La: " + cid.ToString());
+                Console.WriteLine(date_published);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.list_buy_month(@cid, @date_now)", con);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@cid", cid.ToString());
+                cmd.Parameters.AddWithValue("@date_now", date_now);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

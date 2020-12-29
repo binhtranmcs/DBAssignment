@@ -39,6 +39,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnBuyBook = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,11 +111,11 @@
             // 
             // btnGetBook
             // 
-            this.btnGetBook.Location = new System.Drawing.Point(337, 162);
+            this.btnGetBook.Location = new System.Drawing.Point(236, 150);
             this.btnGetBook.Name = "btnGetBook";
-            this.btnGetBook.Size = new System.Drawing.Size(75, 23);
+            this.btnGetBook.Size = new System.Drawing.Size(157, 23);
             this.btnGetBook.TabIndex = 9;
-            this.btnGetBook.Text = "Get Book";
+            this.btnGetBook.Text = "Get Book With Info";
             this.btnGetBook.UseVisualStyleBackColor = true;
             this.btnGetBook.Click += new System.EventHandler(this.btnGetBook_Click);
             // 
@@ -145,11 +146,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(746, 235);
             this.dataGridView1.TabIndex = 12;
             // 
+            // btnBuyBook
+            // 
+            this.btnBuyBook.Location = new System.Drawing.Point(510, 150);
+            this.btnBuyBook.Name = "btnBuyBook";
+            this.btnBuyBook.Size = new System.Drawing.Size(153, 23);
+            this.btnBuyBook.TabIndex = 13;
+            this.btnBuyBook.Text = "Get All Buy Book";
+            this.btnBuyBook.UseVisualStyleBackColor = true;
+            this.btnBuyBook.Click += new System.EventHandler(this.btnBuyBook_Click);
+            // 
             // GetBookCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBuyBook);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
@@ -182,5 +194,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnBuyBook;
     }
 }
