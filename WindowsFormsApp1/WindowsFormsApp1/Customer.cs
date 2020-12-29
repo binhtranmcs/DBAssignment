@@ -105,5 +105,11 @@ namespace WindowsFormsApp1
             var fm = new ViewAuthor(cid);
             fm.ShowDialog();
         }
+
+        private void btnTransaction_Click(object sender, EventArgs e)
+        {
+            var fm = new Transaction(cid);
+            fm.ShowDialog();
+        }
     }
 }
