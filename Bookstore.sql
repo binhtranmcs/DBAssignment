@@ -106,7 +106,7 @@ drop table if exists write;
 create table write(
     isbn        char(20)	references book_isbn(isbn),
     aid         int			references author(aid),
-	date_publish  date,          
+	date_published  date,          
     primary key (isbn, aid),
     --foreign key (isbn) references book_isbn(isbn) on delete cascade,
     --foreign key (aid) references author(aid) on delete cascade,
@@ -135,7 +135,7 @@ create table ebuy (
     cid         int			references customer(cid) on delete cascade,
 	bbid		int			references bill(bbid) on delete cascade,
 	link		varchar(30)	not null,
-    primary key (bid, cid)
+    primary key (bid, cid, bbid)
 );
 
 drop table if exists pbuy;
@@ -143,7 +143,7 @@ create table pbuy (
     bid         int		    references pbook(bid) on delete cascade,
     cid         int			references customer(cid) on delete cascade,
 	bbid		int			references bill(bbid) on delete cascade,
-    primary key (bid, cid)
+    primary key (bid, cid, bbid)
 );
 
 drop table if exists borrow;

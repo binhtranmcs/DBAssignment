@@ -51,16 +51,16 @@ values ('b', 'Val');
 
 declare @date_now date;
 set @date_now = getdate();
-insert into write(isbn, aid, date_publish)
+insert into write(isbn, aid, date_published)
 values ('1111', 1, @date_now);
 set @date_now = getdate();
-insert into write(isbn, aid, date_publish)
+insert into write(isbn, aid, date_published)
 values ('2222', 1, @date_now);
 set @date_now = getdate();
-insert into write(isbn, aid, date_publish)
+insert into write(isbn, aid, date_published)
 values ('3333', 1, @date_now);
 set @date_now = getdate();
-insert into write(isbn, aid, date_publish)
+insert into write(isbn, aid, date_published)
 values ('4444', 1, @date_now);
 
 insert into ebook(isbn)
@@ -78,14 +78,15 @@ values (3, 1, 1);
 --delete from pbuy where 1 = 1;
 --delete from book_isbn where 1 = 1;
 
-select * from customer;
-select * from pbook;
-select * from book_isbn;
 select * from book_prop;
-select * from bill;
-select * from pbuy;
+
 select * from author;
 select * from write;
+select * from customer;
+select * from pbook;
+select * from pbuy;
+select * from book_isbn;
+select * from bill;
 select * from ebuy;
 select * from ebook;
 
