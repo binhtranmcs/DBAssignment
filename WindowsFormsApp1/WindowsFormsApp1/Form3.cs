@@ -40,6 +40,7 @@ namespace WindowsFormsApp1
 
         private void btnGetAuthor_Click(object sender, EventArgs e)
         {
+            date = dateTimePicker1.Value;
             SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True");
             try
             {
@@ -47,6 +48,7 @@ namespace WindowsFormsApp1
                 SqlCommand cmd = new SqlCommand("", con);
                 int month = date.Month;
                 int year = date.Year;
+                Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + cid + " " + month + " " + year);
 
                 if (typeBox.Text == "All transaction")
                 {
