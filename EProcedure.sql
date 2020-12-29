@@ -1,5 +1,191 @@
 use Bookstore;
+----------------------------------------
+drop proc if exists updateImport_pBook;
+go
+create proc updateImport_pBook
+(
+	@bid         int,
+	@isbn		char(20) ,   
+    @genre		varchar(15) ,
+    @title       varchar(20) ,
+	@date_print  date,     
+    @price       integer
+)
+as
+begin
+	update pbook
+	SET
+		isbn = @isbn,
+		date_print = @date_print
+		
+	WHERE bid=@bid and status ='in stored';
+	update book_isbn
+	SET
+		genre=@genre,
+		title =@title,
+		price=title
+	WHERE isbn = @isbn;
 
+end;
+go
+-----------------
+drop proc if exists updateImport_eBook;
+go
+create proc updateImport_eBook
+(
+	@bid         int,
+	@isbn		char(20) ,   
+    @genre		varchar(15) ,
+    @title       varchar(20) ,
+    @price       integer
+)
+as
+begin
+	update ebook
+	SET
+		isbn = @isbn
+	WHERE bid=@bid;
+	update book_isbn
+	SET
+		genre=@genre,
+		title =@title,
+		price=title
+	WHERE isbn = @isbn;
+
+end;
+go
+-----------------
+drop proc if exists updateExport_pBook;
+go
+create proc updateExport_pBook
+(
+	@bid         int,
+	@isbn		char(20) ,   
+    @genre		varchar(15) ,
+    @title       varchar(20) ,
+	@date_print  date,     
+    @price       integer
+)
+as
+begin
+	update pbook
+	SET
+		isbn = @isbn,
+		date_print = @date_print
+		
+	WHERE bid=@bid and status ='exported';
+	update book_isbn
+	SET
+		genre=@genre,
+		title =@title,
+		price=title
+	WHERE isbn = @isbn;
+end;
+go
+-----------------
+drop proc if exists updateExport_eBook;
+go
+create proc updateExport_eBook
+(
+	@bid         int,
+	@isbn		char(20) ,   
+    @genre		varchar(15) ,
+    @title       varchar(20) ,
+    @price       integer
+)
+as
+begin
+	update ebook
+	SET
+		isbn = @isbn
+	WHERE bid=@bid;
+	update book_isbn
+	SET
+		genre=@genre,
+		title =@title,
+		price=title
+	WHERE isbn = @isbn;
+
+end;
+go
+---------------
+drop proc if exists updateExport_eBook;
+go
+create proc updateExport_eBook
+(
+	@bid         int,
+	@isbn		char(20) ,   
+    @genre		varchar(15) ,
+    @title       varchar(20) ,
+    @price       integer
+)
+as
+begin
+	update ebook
+	SET
+		isbn = @isbn
+	WHERE bid=@bid;
+	update book_isbn
+	SET
+		genre=@genre,
+		title =@title,
+		price=title
+	WHERE isbn = @isbn;
+
+end;
+go
+---------------------
+drop proc if exists updateIssue_Bill;
+go
+create proc updateIssue_Bill
+(
+	@bbid    int				,
+	@quantity int			,
+    @payment	varchar(9),
+    @issue   varchar(100),
+    @price	integer,
+    @purchase_date date
+)
+as
+begin
+	update bill
+	SET
+		quantity=@quantity 		,
+    payment=@payment,
+   price= @price,
+  issue= @issue,
+   purchase_date=@purchase_date
+	WHERE bbid=@bbid;
+end;
+go
+----------------
+drop function if exists isbn_Book_Stored_Onemonth;
+go
+create function isbn_Book_Stored_Onemonth
+(
+@sname varchar(30),
+ ---@sid			int	,
+@month int
+)
+returns table
+as
+return select book_isbn.isbn as isbn, count(stored_at.bid) as SoLuong
+       from stored_at
+	   inner join pbook  on stored_at.bid = pbook.bid
+	   inner join book_isbn on book_isbn.isbn = pbook.isbn
+	   inner join bookstore on bookstore.sid=stored_at.sid
+	   where  bookstore.sname=@sname and status='in stored'
+	   group by book_isbn.isbn
+go
+--insert into stored_at(sid,bid)
+--values (1,1);
+--update pbook
+--set status='in stored' where bid=1;
+--insert into bookstore(sname,slocation)
+--values ('chinh','hcm');
+
+select * from isbn_Book_Stored_Onemonth('chinh',3)
+-----------------------------------------------
 drop function if exists ISBN_Bought_Oneday;
 go
 create function ISBN_Bought_Oneday
