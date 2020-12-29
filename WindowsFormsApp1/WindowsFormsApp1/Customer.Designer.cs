@@ -59,6 +59,8 @@
             this.bookView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bookView.Location = new System.Drawing.Point(21, 29);
             this.bookView.Name = "bookView";
+            this.bookView.ReadOnly = true;
+            this.bookView.RowHeadersWidth = 51;
             this.bookView.RowTemplate.Height = 24;
             this.bookView.Size = new System.Drawing.Size(739, 291);
             this.bookView.TabIndex = 2;

@@ -151,7 +151,7 @@ namespace WindowsFormsApp1
                 cmd.Parameters.AddWithValue("@aname", aname);
                 cmd.Parameters.AddWithValue("@genre", genre);
                 cmd.Parameters.AddWithValue("@keyword", keyword);
-                cmd.Parameters.AddWithValue("@date_published", "2020-12-29");
+                cmd.Parameters.AddWithValue("@date_published", date_published);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

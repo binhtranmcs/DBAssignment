@@ -68,7 +68,7 @@ as
 	return 
 		select * 
 		from book_isbn 
-		where genre = @genre or @genre is null;
+		where genre = @genre or @genre = 'null';
 go
 
 select * from list_book_genre('action')
@@ -85,7 +85,7 @@ as
 	return 
 		select book_isbn.isbn, book_isbn.genre, book_isbn.title, book_isbn.price
 		from (author inner join write on author.aid = write.aid) inner join book_isbn on book_isbn.isbn = write.isbn
-		where author.aname = @aname or @aname is null;
+		where author.aname = @aname or @aname = 'null';
 go
 
 select * from list_book_author('a')
@@ -102,7 +102,7 @@ as
 	return 
 		select book_isbn.isbn, book_isbn.genre, book_isbn.title, book_isbn.price
 		from book_prop inner join book_isbn on book_isbn.isbn = book_prop.isbn
-		where book_prop.keyword = @keyword or @keyword is null;
+		where book_prop.keyword = @keyword or @keyword = 'null';
 go
 
 select * from list_book_keyword('Einstein')
@@ -190,6 +190,6 @@ begin
 	return
 end
 go
-select * from get_book('science', 'a', null, null);
+select * from get_book('science', 'a', 'null', null);
 
 
