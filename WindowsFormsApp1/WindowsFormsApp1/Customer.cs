@@ -66,8 +66,9 @@ namespace WindowsFormsApp1
         }
         private void btnView_Click(object sender, EventArgs e)
         {
-            var fm = new InfoCustomer();
+            var fm = new InfoCustomer(cid);
             fm.ShowDialog();
+            showNameCustomer(cid);
         }
 
     }
