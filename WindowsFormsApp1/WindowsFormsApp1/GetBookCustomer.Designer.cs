@@ -40,6 +40,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnBuyBook = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBuy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,11 +157,22 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Please select null if you want to get all ";
             // 
+            // btnBuy
+            // 
+            this.btnBuy.Location = new System.Drawing.Point(323, 451);
+            this.btnBuy.Name = "btnBuy";
+            this.btnBuy.Size = new System.Drawing.Size(100, 23);
+            this.btnBuy.TabIndex = 14;
+            this.btnBuy.Text = "Buy Book";
+            this.btnBuy.UseVisualStyleBackColor = true;
+            this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
+            // 
             // GetBookCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(834, 504);
+            this.Controls.Add(this.btnBuy);
             this.Controls.Add(this.btnBuyBook);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
@@ -195,5 +207,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnBuyBook;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBuy;
     }
 }
