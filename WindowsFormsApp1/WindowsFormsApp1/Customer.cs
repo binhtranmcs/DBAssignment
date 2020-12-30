@@ -111,5 +111,24 @@ namespace WindowsFormsApp1
             var fm = new Transaction(cid);
             fm.ShowDialog();
         }
+
+        private void btnBuyBook_Click(object sender, EventArgs e)
+        {
+            List<string> list_isbn = new List<string>();
+            List<string> list_genre = new List<string>();
+            List<string> list_title = new List<string>();
+            List<int> list_price = new List<int>();
+            foreach (DataGridViewRow r in bookView.SelectedRows)
+            {
+                string isbn = r.Cells[0].Value.ToString();
+                string genre = r.Cells[1].Value.ToString();
+                string title = r.Cells[2].Value.ToString();
+                int price = Convert.ToInt32(r.Cells[3].Value.ToString());
+                list_isbn.Add(isbn);
+                list_genre.Add(genre);
+                list_title.Add(title);
+                list_price.Add(price);
+            }
+        }
     }
 }

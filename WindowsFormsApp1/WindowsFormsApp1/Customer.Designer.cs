@@ -34,6 +34,7 @@
             this.btnGetBook = new System.Windows.Forms.Button();
             this.btnGetAuthor = new System.Windows.Forms.Button();
             this.btnTransaction = new System.Windows.Forms.Button();
+            this.btnBuyBook = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bookView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,11 +98,22 @@
             this.btnTransaction.UseVisualStyleBackColor = true;
             this.btnTransaction.Click += new System.EventHandler(this.btnTransaction_Click);
             // 
+            // btnBuyBook
+            // 
+            this.btnBuyBook.Location = new System.Drawing.Point(63, 406);
+            this.btnBuyBook.Name = "btnBuyBook";
+            this.btnBuyBook.Size = new System.Drawing.Size(75, 23);
+            this.btnBuyBook.TabIndex = 6;
+            this.btnBuyBook.Text = "buy book";
+            this.btnBuyBook.UseVisualStyleBackColor = true;
+            this.btnBuyBook.Click += new System.EventHandler(this.btnBuyBook_Click);
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBuyBook);
             this.Controls.Add(this.btnTransaction);
             this.Controls.Add(this.btnGetAuthor);
             this.Controls.Add(this.btnGetBook);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.Button btnGetBook;
         private System.Windows.Forms.Button btnGetAuthor;
         private System.Windows.Forms.Button btnTransaction;
+        private System.Windows.Forms.Button btnBuyBook;
     }
 }
