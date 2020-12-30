@@ -227,7 +227,7 @@ begin
 		insert @res 
 		select book_isbn.isbn, pbook.bid, title 
 		from pbook inner join book_isbn on book_isbn.isbn = pbook.isbn
-		where status = 'in store';
+		where status = 'in stored';
 		return
 	end
 	insert @res 
