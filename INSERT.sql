@@ -40,12 +40,12 @@ values ('4444', 'Einstein');
 insert into book_prop
 values ('4444', 'gravity');
 
-insert into pbook(isbn, date_print)
-values ('1111', cast('1/1/2000' as datetime));
-insert into pbook(isbn, date_print)
-values ('1111', cast('1/1/2000' as datetime));
-insert into pbook(isbn, date_print)
-values ('1111', cast('1/1/2000' as datetime));
+insert into pbook
+values ('1111', cast('1/1/2000' as datetime), 'in stored');
+insert into pbook
+values ('1111', cast('1/1/2000' as datetime), 'in stored');
+insert into pbook
+values ('1111', cast('1/1/2000' as datetime), 'waiting');
 
 insert into bill(issue, price, purchase_date, quantity)
 values ('not finished', 2000, cast('1/12/2000' as datetime), 2);

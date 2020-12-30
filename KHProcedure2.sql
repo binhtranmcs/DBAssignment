@@ -184,6 +184,58 @@ as
 		from ((pbuy inner join ebuy on pbuy.bbid = ebuy.bbid) inner join bill on ebuy.bbid = bill.bbid)
 		where @month = month(purchase_date) and @year = year(purchase_date) and (@cid = pbuy.cid or @cid = ebuy.cid);
 go
-select * from mixed_bill(1, 1, 2000)
+select * from mixed_bill(1, 1, 2000);
+
+----------------------------------
+drop function if exists book_type; -- 1-> pbook, 2->ebook
+go
+create function book_type(@isbn char(20)) 
+returns int
+as
+begin
+	declare @tmp int;
+	set @tmp = (
+	select count(book_isbn.isbn) 
+	from book_isbn inner join ebook on book_isbn.isbn = ebook.isbn
+	where book_isbn.isbn = @isbn); 
+	if @tmp = 0
+	begin
+		return 1 
+	end
+	else
+	begin
+		return 2
+	end
+	return 0
+end
+go
+declare @tmp int;
+set @tmp = dbo.book_type('2222');
+print(@tmp)
+
+-----------------------------------------
+drop function if exists get_book_by_isbn;
+go
+create function get_book_by_isbn(@isbn char(20))
+returns @res table(isbn char(20), bid int, title varchar(20))
+as
+begin
+	declare @typ int;
+	set @typ = dbo.book_type(@isbn);
+	if @typ = 1
+	begin
+		insert @res 
+		select book_isbn.isbn, pbook.bid, title 
+		from pbook inner join book_isbn on book_isbn.isbn = pbook.isbn
+		where status = 'in store';
+		return
+	end
+	insert @res 
+	select book_isbn.isbn, ebook.bid, title 
+	from ebook inner join book_isbn on book_isbn.isbn = ebook.isbn;
+	return
+end
+go
+select * from get_book_by_isbn('1111')
 
 use smallDB20161002;
