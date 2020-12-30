@@ -19,5 +19,39 @@ namespace WindowsFormsApp1
             eid = _eid;
             Console.WriteLine("Ok day la Employee co id la: " + eid.ToString());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var fm = new insert();
+            fm.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var fm = new updatebookEmployee();
+            fm.ShowDialog();
+        }
+
+        private void Employee_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void info_Click(object sender, EventArgs e)
+        {
+            var fm = new infoEmployee(1);
+            fm.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var fm = new insertchinh();
+            fm.ShowDialog();
+        }
     }
 }

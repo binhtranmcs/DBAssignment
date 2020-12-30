@@ -52,17 +52,41 @@
     <Compile Include="Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="updatebookEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="updatebookEmployee.Designer.cs">
+      <DependentUpon>updatebookEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="insert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="insert.Designer.cs">
+      <DependentUpon>insert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="insertchinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="insertchinh.Designer.cs">
+      <DependentUpon>insertchinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="infoEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infoEmployee.Designer.cs">
+      <DependentUpon>infoEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="TransactionCustomer.cs">
       <SubType>Form</SubType>
@@ -111,8 +135,20 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="infoEmployee.resx">
+      <DependentUpon>infoEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="insert.resx">
+      <DependentUpon>insert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="insertchinh.resx">
+      <DependentUpon>insertchinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TransactionCustomer.resx">
       <DependentUpon>TransactionCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updatebookEmployee.resx">
+      <DependentUpon>updatebookEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewAuthor.resx">
       <DependentUpon>ViewAuthor.cs</DependentUpon>

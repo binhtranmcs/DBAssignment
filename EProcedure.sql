@@ -469,7 +469,7 @@ as
 --create function Totalof_Pbook_ISBN_Bought_Oneday_Eachstore
 
 
-drop function if exists Most_Store;
+drop function if exists Most_Store_OneMonth;
 go
 create function Most_Store_OneMonth
 (
@@ -527,8 +527,6 @@ begin
 
 end;
 go
-//
-go
 
 drop proc if exists Insert_eBookISBN;
 go
@@ -546,8 +544,8 @@ begin
 	insert into book_isbn (isbn,genre,title,price)
 	values (@isbn,@genre,@title,@price);
 	insert into ebook(isbn) values(@isbn);
-	--insert into author(aname) values(@aname);
-	--insert into write(isbn,aid) values(@isbn,(select author.aid from author where author.aname=@aname));
+	insert into author(aname) values(@aname);
+	insert into write(isbn,aid) values(@isbn,(select TOP(1) author.aid from author where author.aname=@aname));
 end;
 go
 
@@ -597,3 +595,23 @@ inner join write on write.isbn=book_isbn.isbn
 inner join author on author.aid=write.aid
 go
 
+----------------------------------------
+drop proc if exists updateInfo_Employee;
+go
+create proc updateInfo_Employee
+(
+	@eid int,
+	@eaddress varchar(30), 
+	@ename varchar(30), 
+	@eemail varchar(20)
+)
+as
+begin
+	update employee
+	SET
+		eaddress = @eaddress,
+		ename = @ename,
+		eemail = @eemail
+	WHERE eid = @eid;
+end;
+go
