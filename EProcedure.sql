@@ -527,3 +527,73 @@ begin
 
 end;
 go
+//
+go
+
+drop proc if exists Insert_eBookISBN;
+go
+create proc Insert_eBookISBN
+(	 
+    @isbn		char(20) ,
+	@genre varchar(15),  
+	@title	varchar(20),
+    @price       integer,
+	@aname	 varchar(30)
+)
+as
+begin
+	
+	insert into book_isbn (isbn,genre,title,price)
+	values (@isbn,@genre,@title,@price);
+	insert into ebook(isbn) values(@isbn);
+	--insert into author(aname) values(@aname);
+	--insert into write(isbn,aid) values(@isbn,(select author.aid from author where author.aname=@aname));
+end;
+go
+
+
+drop proc if exists Insert_pBookISBN;
+go
+create proc Insert_pBookISBN
+(	 
+    @isbn		char(20) ,
+	@genre varchar(15),  
+	@title	varchar(20),
+    @price       integer,
+	@aname	 varchar(30)
+)
+as
+begin
+	
+	insert into book_isbn (isbn,genre,title,price)
+	values (@isbn,@genre,@title,@price);
+	insert into pbook(isbn) values(@isbn);
+	insert into author(aname) values(@aname);
+	insert into write(isbn,aid) values(@isbn,(select author.aid from author where author.aname=@aname));
+	
+end;
+go
+
+drop function if exists ebookInsert;
+go
+create function ebookInsert
+()
+returns table as
+return select ebook.bid,book_isbn.*,author.aname
+from book_isbn
+inner join ebook on ebook.isbn=book_isbn.isbn
+inner join write on write.isbn=book_isbn.isbn
+inner join author on author.aid=write.aid
+go
+drop function if exists pbookInsert;
+go
+create function pbookInsert
+()
+returns table as
+return select pbook.bid,book_isbn.*,author.aname
+from book_isbn
+inner join pbook on pbook.isbn=book_isbn.isbn
+inner join write on write.isbn=book_isbn.isbn
+inner join author on author.aid=write.aid
+go
+
