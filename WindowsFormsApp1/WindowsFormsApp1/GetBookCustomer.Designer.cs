@@ -37,9 +37,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnGetBook = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnBuyBook = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,15 +126,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(229, 22);
             this.dateTimePicker1.TabIndex = 10;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(161, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 17);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Please select null if you want to get all ";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -155,6 +146,15 @@
             this.btnBuyBook.Text = "Get All Buy Book";
             this.btnBuyBook.UseVisualStyleBackColor = true;
             this.btnBuyBook.Click += new System.EventHandler(this.btnBuyBook_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(161, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(251, 17);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Please select null if you want to get all ";
             // 
             // GetBookCustomer
             // 
@@ -192,8 +192,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGetBook;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnBuyBook;
+        private System.Windows.Forms.Label label1;
     }
 }

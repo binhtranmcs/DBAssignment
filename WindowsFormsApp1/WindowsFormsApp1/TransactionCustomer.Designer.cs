@@ -30,7 +30,6 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnGetAuthor = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.typeBox = new System.Windows.Forms.ComboBox();
@@ -48,15 +47,6 @@ namespace WindowsFormsApp1
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(746, 235);
             this.dataGridView1.TabIndex = 29;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(156, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 17);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Please select null if you want to get all ";
             // 
             // btnGetAuthor
             // 
@@ -99,7 +89,6 @@ namespace WindowsFormsApp1
             this.ClientSize = new System.Drawing.Size(798, 450);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGetAuthor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.typeBox);
@@ -114,7 +103,6 @@ namespace WindowsFormsApp1
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGetAuthor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox typeBox;
