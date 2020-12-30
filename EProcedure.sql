@@ -597,3 +597,23 @@ inner join write on write.isbn=book_isbn.isbn
 inner join author on author.aid=write.aid
 go
 
+----------------------------------------
+drop proc if exists updateInfo_Employee;
+go
+create proc updateInfo_Employee
+(
+	@eid int,
+	@eaddress varchar(30), 
+	@ename varchar(30), 
+	@eemail varchar(20)
+)
+as
+begin
+	update employee
+	SET
+		eaddress = @eaddress,
+		ename = @ename,
+		eemail = @eemail
+	WHERE eid = @eid;
+end;
+go
