@@ -81,11 +81,11 @@ insert into ebuy(bid, cid, bbid, link)
 VALUES(1, 8, 2, 'youtube.com')
 
 insert into pbuy
-values (1, 1, 1);
+values (1, 8, 1);
 insert into pbuy
-values (4, 1, 2);
+values (4, 8, 2);
 insert into pbuy
-values (5, 1, 1);
+values (5, 8, 1);
 
 --delete from pbuy where 1 = 1;
 --delete from book_isbn where 1 = 1;
