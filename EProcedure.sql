@@ -510,4 +510,20 @@ begin
 
 end;
 go
+drop proc if exists updateImport_pBookISBN;
+go
+create proc updateImport_pBookISBN
+(	
+	@bid		 int ,   
+    
+    @price       integer
+)
+as
+begin
+	update book_isbn
+	SET
+		price=@price
+	WHERE @bid = (select pbook.bid from pbook where book_isbn.isbn=pbook.isbn)
 
+end;
+go
