@@ -488,3 +488,26 @@ return select top 1 bookstore.sname as TenCuaHang, count(pbuy.bid) as SoLuongSac
 	   group by bookstore.sid,bookstore.sname
 	   order by count(pbuy.bid);
 go
+
+
+
+
+
+drop proc if exists updateImport_BookISBN;
+go
+create proc updateImport_BookISBN
+(	
+	@bid		 int ,   
+    
+    @price       integer
+)
+as
+begin
+	update book_isbn
+	SET
+		price=@price
+	WHERE @bid = (select ebook.bid from ebook where book_isbn.isbn=ebook.isbn)
+
+end;
+go
+
