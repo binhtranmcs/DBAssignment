@@ -72,7 +72,7 @@ create table book_prop (
 drop table if exists bill;
 create table bill(
     bbid    int				not null identity(1, 1) primary key,
-	quantity int			check(quantity > 0),
+	quantity int			check(quantity >= 0),
     payment	varchar(9),
     issue   varchar(100),
     price	integer,

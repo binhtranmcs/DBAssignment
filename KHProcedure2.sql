@@ -227,15 +227,16 @@ begin
 		insert @res 
 		select book_isbn.isbn, pbook.bid, title 
 		from pbook inner join book_isbn on book_isbn.isbn = pbook.isbn
-		where status = 'in stored';
+		where pbook.isbn = @isbn;
 		return
 	end
 	insert @res 
-	select book_isbn.isbn, ebook.bid, title 
-	from ebook inner join book_isbn on book_isbn.isbn = ebook.isbn;
+		select book_isbn.isbn, ebook.bid, title 
+		from ebook inner join book_isbn on book_isbn.isbn = ebook.isbn
+		where ebook.isbn = @isbn;
 	return
 end
 go
-select * from get_book_by_isbn('1111')
+select * from get_book_by_isbn('4444')
 
 use smallDB20161002;

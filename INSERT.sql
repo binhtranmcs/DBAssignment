@@ -77,8 +77,6 @@ insert into ebook(isbn)
 VALUES('3333')
 insert into pbook(isbn)
 VALUES('4444')
-insert into ebuy(bid, cid, bbid, link)
-VALUES(1, 8, 2, 'youtube.com')
 
 insert into pbuy
 values (1, 8, 1);
