@@ -60,8 +60,10 @@ Reviewing management of book buying-selling online with MS SQL Server database a
 </ul>
 
 You can login with registered account at testAss2.sql
-    username: e2
-    password: 1234
+<ul>
+<li>username: e2 </li>
+<li>password: 1234 </li>
+</ul>
 
 
 
