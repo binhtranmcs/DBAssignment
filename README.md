@@ -37,7 +37,6 @@ Reviewing management of book buying-selling online with MS SQL Server database a
 ### General Feature
 
 <ul>
-<li></li>
 <li>Login</li>
 <li>Update Info</li>
 </ul>
@@ -45,7 +44,6 @@ Reviewing management of book buying-selling online with MS SQL Server database a
 ### Feature of Customer 
 
 <ul>
-<li></li>
 <li>Sign Up</li>
 <li>View Information</li>
 <li>Find/Get Book</li>
@@ -56,7 +54,6 @@ Reviewing management of book buying-selling online with MS SQL Server database a
 ### Feature of Employee
 
 <ul>
-<li></li>
 <li>Update Book</li>
 <li>View Book with Function</li>
 <li>Add Book in Bookstore</li>
