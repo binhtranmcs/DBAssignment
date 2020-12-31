@@ -1,6 +1,6 @@
 # e-Bookstore Management
 
-Reviewing management of book buying-selling online with MS SQL Server database and developed on simple c# winform application
+Reviewing management of book buying-selling online with MS SQL Server database and developed on simple C# winform application
 
 ## Database 
 [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/)
@@ -29,6 +29,44 @@ Reviewing management of book buying-selling online with MS SQL Server database a
     # Execute all the program in the order above
 
     # Open project in Visual Studio (open WindowsFormsApp1.sln)
+
+    # And try our project ^_^ ^_^.
+
+## User Authorization
+
+### General Feature
+
+<ul>
+<li></li>
+<li>Login</li>
+<li>Update Info</li>
+</ul>
+
+### Feature of Customer 
+
+<ul>
+<li></li>
+<li>Sign Up</li>
+<li>View Information</li>
+<li>Find/Get Book</li>
+<li>Find/Get Author of Book</li>
+<li>List Transaction</li>
+</ul>
+
+### Feature of Employee
+
+<ul>
+<li></li>
+<li>Update Book</li>
+<li>View Book with Function</li>
+<li>Add Book in Bookstore</li>
+</ul>
+
+You can login with registered account at testAss2.sql
+    username: e2
+    password: 1234
+
+
 
 
 
