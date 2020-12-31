@@ -59,7 +59,7 @@ Reviewing management of book buying-selling online with MS SQL Server database a
 <li>Add Book in Bookstore</li>
 </ul>
 
-You can login with registered account at testAss2.sql
+You can login with registered account at [testAss2.sql](https://github.com/binhtranmcs/DBAssignment/blob/master/testAss2.sql)
 <ul>
 <li>username: e2 </li>
 <li>password: 1234 </li>
