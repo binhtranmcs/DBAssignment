@@ -24,7 +24,7 @@ Reviewing management of book buying-selling online with MS SQL Server database a
 
     # Open SQL Server Management Studio (SSMS) and Connenct Your Server
 
-    # Open Bookstore.sql, INSERT.sql, EProcedure.sql, KHProcedure1.sql, KHProcedure2.sql, testAss2.sql
+    # Open Bookstore.sql, INSERT.sql, EProcedure.sql, KHProcedure1.sql, KHProcedure2.sql, testAss2.sql in SSMS above
 
     # Execute all the program in the order above
 
